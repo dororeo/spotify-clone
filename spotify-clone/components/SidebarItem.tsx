@@ -38,5 +38,5 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
         </Link>
      );
 }
- 
+
 export default SidebarItem;
