@@ -21,7 +21,7 @@ const Sidebar: React.FC<SidebarProps> = ({
     //add hook
     const pathname = usePathname();
 
-    //array of possible routes
+    //array of possible routes, setting up navigation links
     const routes = useMemo(() => [
         {
             icon: HiHome,
