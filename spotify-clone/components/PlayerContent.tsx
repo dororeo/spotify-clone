@@ -192,15 +192,15 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
                         </div>
                     </div>
                     <div className="hidden h-full md:flex justify-center items-center w-full max-w-[722px] gap-x-6">
-                        <AiFillStepBackward size={30} className="text-neutral-400 cursor-pointer hover-text-white transition" onClick={onPlayPrevious} />
+                        <AiFillStepBackward size={30} className="text-neutral-400 cursor-pointer hover:text-white transition" onClick={onPlayPrevious} />
                         <div onClick={handlePlay} className="flex items-center justify-center h-10 w-10 rounded-full bg-white p-1 cursor-pointer">
                             <Icon size={30} className="text-black" />
                         </div>
-                        <AiFillStepForward size={30} className="text-neutral-400 cursor-pointer hover-text-white transition" onClick={onPlayNext} />
+                        <AiFillStepForward size={30} className="text-neutral-400 cursor-pointer hover:text-white transition" onClick={onPlayNext} />
                     </div>
                     <br />
                     <div id="slider" className="hidden h-full md:flex justify-center items-center w-full gap-x-6">
-                        <div> {formatTime(Math.floor(trackPosition * (audioRef.current.duration / 100)))}</div>
+                        <div className='text-neutral-400 text-sm'>{formatTime(Math.floor(trackPosition * (audioRef.current.duration / 100)))}</div>
                         <input
                             type="range"
                             min="0"
@@ -215,7 +215,7 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
                                 outline: 'none',   // Remove the default outline
                             }}
                         />
-                        <div>{formatTime(Math.floor(audioRef.current.duration - (trackPosition * (audioRef.current.duration / 100))))}</div>
+                        <div className='text-neutral-400 text-sm'>{formatTime(Math.floor(audioRef.current.duration - (trackPosition * (audioRef.current.duration / 100))))}</div>
                     </div>
 
                 </div>
