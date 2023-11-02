@@ -15,7 +15,11 @@ const Player = () => {
 
     //don't load player if there is no song playing
     if (!song || !songUrl || !player.activeId) {
-        return null;
+        return  <div className="flex justify-center items-center">
+        <div className="text-neutral-400 font-medium text-md mt-8">
+            No Song Playing
+        </div>
+    </div>
     }
 
     return (  

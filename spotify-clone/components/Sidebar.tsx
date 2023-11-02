@@ -11,17 +11,20 @@ import Library from "./Library";
 import { Song } from "@/types";
 import usePlayer from "@/hooks/usePlayer";
 import { twMerge } from "tailwind-merge";
+import TopTracks from "./TopTracks";
 
 
 //fix typscript error
 interface SidebarProps {
     children: React.ReactNode;
-    songs: Song[]
+    songs: Song[];
+    topTracks: Song[]
 }
 
 const Sidebar: React.FC<SidebarProps> = ({
     children,
-    songs
+    songs,
+    topTracks
 }) => {
     //add hook
     const pathname = usePathname();
@@ -71,7 +74,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                     <Library songs={songs}/>
                 </Box>
                 <Box className="overflow-y-auto h-full">
-                    <div>Popular Songs</div>
+                    <TopTracks songs={topTracks} />
                 </Box>
             </div>
             <main className="h-full flex-1 overflow-y-auto py-2">

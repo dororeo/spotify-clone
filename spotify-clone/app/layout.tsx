@@ -8,6 +8,7 @@ import ModalProvider from '@/providers/ModalProvider'
 import ToasterProvider from '@/providers/ToasterProvider'
 import getSongsByUserId from '@/actions/getSongsByUserId'
 import Player from '@/components/Player'
+import getSongsByPlayCount from '@/actions/getSongsByPlayCount'
 
 const font = Figtree({ subsets: ['latin'] })
 
@@ -24,6 +25,8 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
   const userSongs = await getSongsByUserId();
+  const topSongs = await getSongsByPlayCount();
+
 
 
   return (
@@ -33,7 +36,7 @@ export default async function RootLayout({
         <SupabaseProvider>
           <UserProvider>
             <ModalProvider />
-        <Sidebar songs={userSongs}>
+        <Sidebar songs={userSongs} topTracks={topSongs}>
           {children}
         </Sidebar>
         <Player />
