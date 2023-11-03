@@ -9,9 +9,6 @@ A music streaming app that allows users to discover, upload, and enjoy their fav
   - [Description](#description)
   - [Features](#features)
   - [Tech Stack](#tech-stack)
-  - [Getting Started](#getting-started)
-    - [Prerequisites](#prerequisites)
-    - [Installation](#installation)
   - [Usage](#usage)
 
 ## Description
