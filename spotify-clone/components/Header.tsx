@@ -73,10 +73,10 @@ const Header: React.FC<HeaderProps> = ({
                     </button>
                 </div>
                 <div className="flex md:hidden gap-x-2 items-center">
-                    <button className="rounded-full p-2 bg-white flex items-center justify-center hover:opacity-75 transition">
+                    <button onClick={() => router.push('/')} className="rounded-full p-2 bg-white flex items-center justify-center hover:opacity-75 transition">
                         <HiHome size={20} className="text-black" />
                     </button>
-                    <button className="rounded-full p-2 bg-white flex items-center justify-center hover:opacity-75 transition">
+                    <button onClick={() => router.push('/search')} className="rounded-full p-2 bg-white flex items-center justify-center hover:opacity-75 transition">
                         <BiSearch size={20} className="text-black" />
                     </button>
                 </div>
@@ -87,10 +87,6 @@ const Header: React.FC<HeaderProps> = ({
                             <Button
                             onClick={handleLogout} className="bg-white px-6 py-2">
                             Logout
-                            </Button>
-                            <Button onClick={() => router.push('/account')}
-                            className="bg-white">
-                                <FaUserAlt />
                             </Button>
                         </div>
                     ) : (

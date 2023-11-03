@@ -28,7 +28,6 @@ export default async function RootLayout({
   const topSongs = await getSongsByPlayCount();
 
 
-
   return (
     <html lang="en">
       <body className={font.className}>
@@ -36,13 +35,13 @@ export default async function RootLayout({
         <SupabaseProvider>
           <UserProvider>
             <ModalProvider />
-        <Sidebar songs={userSongs} topTracks={topSongs}>
-          {children}
-        </Sidebar>
-        <Player />
-        </UserProvider>
+            <Sidebar songs={userSongs} topTracks={topSongs}>
+              {children}
+            </Sidebar>
+            <Player />
+          </UserProvider>
         </SupabaseProvider>
-        </body>
+      </body>
     </html>
   )
 }

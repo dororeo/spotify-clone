@@ -21,12 +21,12 @@ const PageContent: React.FC<PageContentProps> = ({
     const [selectedArtist, setSelectedArtist] = useState<string | null>(null);
     const filteredSongs = selectedArtist ? songs.filter((song) => song.artist === selectedArtist) : songs;
     const artists = Array.from(new Set(filteredSongs.map((song) => song.artist)));
- 
 
-const handleArtistSelect = (artist: string) => {
-    setSelectedArtist(artist);
-    setShowAllArtists(false);
-};
+
+    const handleArtistSelect = (artist: string) => {
+        setSelectedArtist(artist);
+        setShowAllArtists(false);
+    };
 
     if (songs.length === 0) {
         return (
@@ -40,17 +40,16 @@ const handleArtistSelect = (artist: string) => {
             <div className="mb-4">
                 <button
                     onClick={() => setShowAllArtists(!showAllArtists)}>
-                        <br />
-                    <TbAdjustmentsHorizontal size={25} className="text-neutral-400 cursor-pointer hover:text-white transition"  />
+                    <br />
+                    <TbAdjustmentsHorizontal size={25} className="text-neutral-400 cursor-pointer hover:text-white transition" />
                 </button>
             </div>
 
             <div className="flex flex-wrap gap-2 mb-4">
                 {showAllArtists && (
                     <button
-                        className={`${
-                            'text-white py-2 px-4 rounded-md transition bg-neutral-100/10 hover:bg-neutral-100/20 pr-4'
-                        }`}
+                        className={`${'text-white py-2 px-4 rounded-md transition bg-neutral-100/10 hover:bg-neutral-100/20 pr-4'
+                            }`}
                         onClick={() => setSelectedArtist(null)}
                     >
                         View All Artists
@@ -61,13 +60,11 @@ const handleArtistSelect = (artist: string) => {
                     artists.map((artist, index) => (
                         <button
                             key={index}
-                            className={`${
-                                'text-white py-2 px-4 rounded-md transition bg-neutral-100/10 hover:bg-neutral-100/20 pr-4'
-                            } ${
-                                selectedArtist === artist
+                            className={`${'text-white py-2 px-4 rounded-md transition bg-neutral-100/10 hover:bg-neutral-100/20 pr-4'
+                                } ${selectedArtist === artist
                                     ? 'bg-neutral-100/20 hover:bg-neutral-100/20'
                                     : ' bg-neutral-100/10 hover:bg-neutral-100/20'
-                            }`}
+                                }`}
                             onClick={() => handleArtistSelect(artist)}
                         >
                             {artist}

@@ -4,25 +4,28 @@ import { cookies } from "next/headers";
 import getSongs from "./getSongs";
 
 const getSongsByTitle = async (title: string): Promise<Song[]> => {
+  //server component supabase client
+  const supabase = createServerComponentClient({
+    cookies: cookies,
+  });
 
-    //server component supabase client
-    const supabase = createServerComponentClient({
-        cookies: cookies
-    });
+  if (!title) {
+    const allSongs = await getSongs();
+    return allSongs;
+  }
 
-    if(!title) {
-        const allSongs = await getSongs();
-        return allSongs;
-    }
+  //fetch songs
+  const { data, error } = await supabase
+    .from("songs")
+    .select("*")
+    .ilike("title", `%${title}%`)
+    .order("created_at", { ascending: false });
 
-    //fetch songs
-    const { data, error } = await supabase.from('songs').select('*').ilike('title', `%${title}%`).order('created_at', { ascending: false });
+  if (error) {
+    console.log(error);
+  }
 
-    if(error) {
-        console.log(error);
-    }
-    
-    return (data as any) || [];
-}
+  return (data as any) || [];
+};
 
 export default getSongsByTitle;

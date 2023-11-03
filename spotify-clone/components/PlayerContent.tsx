@@ -209,13 +209,13 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
                             value={trackPosition}
                             onChange={handleTrackPositionChange}
                             style={{
-                                height: '4px',     // Adjust the height as per your preference
-                                width: '100%',     // Adjust the width as per your preference
-                                backgroundColor: 'white',  // Set the background color to white
+                                height: '3px',     // Adjust the height as per your preference
+                                width: '80%',     // Adjust the width as per your preference
+                                color: 'white',  // Set the background color to white
                                 outline: 'none',   // Remove the default outline
                             }}
                         />
-                        <div className='text-neutral-400 text-sm'>{formatTime(Math.floor(audioRef.current.duration - (trackPosition * (audioRef.current.duration / 100))))}</div>
+                        <div className='text-neutral-400 text-sm margin'>{formatTime(Math.floor(audioRef.current.duration - (trackPosition * (audioRef.current.duration / 100))))}</div>
                     </div>
 
                 </div>
