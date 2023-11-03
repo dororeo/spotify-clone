@@ -52,7 +52,7 @@ const PageContent: React.FC<PageContentProps> = ({
                             }`}
                         onClick={() => setSelectedArtist(null)}
                     >
-                        View All Artists
+                        View All
                     </button>
                 )}
 
